@@ -2,6 +2,24 @@ import tkinter as tk
 from tkinter import filedialog, Text
 import os
 
+import mysql.connector
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="",
+    database="links"
+)
+
+print(mydb)
+
+cursor = mydb.cursor()
+cursor.execute('SELECT * FROM storedlinks')
+
+for row in cursor:
+    print(row)
+
+
 root = tk.Tk()
 apps = []
 root.resizable(True, True)
