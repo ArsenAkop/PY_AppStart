@@ -50,12 +50,14 @@ runApps = tk.Button(root, text="Run Apps", padx=10,
                     pady=5, fg="white", bg="#263D42", command=runApps)
 runApps.pack()  # attach the 'run apps' button to the UI
 
+# pack the stored app links onto to the main UI
 for app in apps:
     label = tk.Label(frame, text=app)
     label.pack()
 
 root.mainloop()
 
+# store applications inside a new text file 'save.txt' for future retrieval
 with open('save.txt', 'w') as f:
     for app in apps:
         f.write(app + ",")
